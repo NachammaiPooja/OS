@@ -21,7 +21,6 @@ void gantt(job arr[], int n, int tot_time)
 	printf("\n\n\tGANTT CHART");
 	
 	int i, j;
-	
 	// printing the top bar
 	printf("\n\n\t ");
 	for(i=0; i<n-1; i++)
