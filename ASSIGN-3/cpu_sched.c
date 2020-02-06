@@ -87,30 +87,10 @@ void gantt(job arr[], int n, int tot_time)
 	printf("  ");
 	if(tot_time > 9)
 	printf("\b%d", tot_time); // backspace : remove space for two digit time instances
-	    printf("\n");
-}
-
-void chart(job rec[],int n)
-{
-	for(int i=0;i<n;i++)
-	{
-		printf("-----");
-	}
-	printf("\n");
-	for (int i = 0; i < n; i++) {
-		printf("| P%d ", rec[i].pid);
-	}
-	printf("|\n");
-	for(int i=0;i<n;i++)
-	{
-		printf("-----");
-	}
-	printf("\n");
-	for(int i=0;i<n;i++)
-	{
-		printf("%d    ",rec[i].arr);
-	}
-	printf("%d\n",rec[n-1].burst);
+	   
+     else
+         printf("%d", tot_time);
+      printf("\n");
 }
 
 void display(job ar[],int n)
@@ -142,7 +122,8 @@ void display(job ar[],int n)
 	   }
          printf("-----------------------------------------------------------------------------------------------------------------\n");
 
-         printf("\n Average \t\t\t\t\t\t\t\t\t%.2f\t\t\t%.2f",avgturn/n,avgwait/n);
+         printf("|\t\t\t\t\t\t\t\t\t| \t\t\t|\t\t|\n| Average \t\t\t\t\t\t\t\t|\t%.2f\t\t|\t%.2f\t|",avgturn/n,avgwait/n);
+      printf("\n-----------------------------------------------------------------------------------------------------------------\n");
 	 printf("\n");
 
 }
