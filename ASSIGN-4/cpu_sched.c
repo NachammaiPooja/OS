@@ -89,7 +89,9 @@ void gantt(job arr[], int n, int tot_time)
 	printf("  ");
 	if(tot_time > 9)
 	printf("\b%d", tot_time); // backspace : remove space for two digit time instances
-	    printf("\n");
+	else
+         printf("%d", tot_time);
+      printf("\n");
 }
 
 void display(job ar[],int n)
@@ -121,8 +123,10 @@ void display(job ar[],int n)
 	   }
         printf("-----------------------------------------------------------------------------------------------------------------\n");
 
-        printf("\n Average \t\t\t\t\t\t\t\t\t%.2f\t\t\t%.2f",avgturn/n,avgwait/n);
-        printf("\n");
+        
+      printf("|\t\t\t\t\t\t\t\t\t| \t\t\t|\t\t|\n| Average \t\t\t\t\t\t\t\t|\t%.2f\t\t|\t%.2f\t|",avgturn/n,avgwait/n);
+      printf("\n-----------------------------------------------------------------------------------------------------------------\n");
+	 printf("\n");
 
 }
 
