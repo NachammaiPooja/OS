@@ -15,21 +15,23 @@
 int main()
 {
 int pid;
-char *a,*b,*y,filename[10];
-int id,n,i,id1,sz,id2;
-FILE *fp;
+char *a,*b,c,*y,filename[10];
+FILE *fd1;
+int id,n,i,id1;
 printf("Enter the file name : ");
 scanf("%s",filename);
-id=shmget(111,50,IPC_CREAT | 00666);
-id1=shmget(112,50,IPC_CREAT | 00666);
+fd1 = fopen(filename,"w+");
+id=shmget(111,50,0);
+id1=shmget(112,50,0);
 y=shmat(id1,NULL,0);
-a=shmat(id,NULL,0); 
-fp = fopen(filename,"r");
-fread(a,1,1000,fp);
-y[0]='1';
-
-shmdt(a);
-shmdt(y);
-fclose(fp);
+b=shmat(id,NULL,0);
+while(y[0] != '1')
+{
 }
+b=shmat(id,NULL,0);
+fwrite(b,1,strlen(b),fd1);
+fclose(fd1);
+shmctl(id, IPC_RMID,NULL);
+shmctl(id1, IPC_RMID,NULL);
 
+}
